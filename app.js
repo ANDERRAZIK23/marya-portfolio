@@ -1,20 +1,6 @@
 'use strict';
 
 const projects = {
-  risque: {
-    title: 'Suivi de l’appétence au risque',
-    organization: 'Attijariwafa Bank',
-    period: 'PFE · Févr. – juil. 2026',
-    description: 'Conception d’un tableau de bord décisionnel de suivi de l’appétence au risque au sein du département Data SIG.',
-    features: [
-      { title: 'Préparation des données', detail: 'Analyse et préparation des données issues de différentes sources.' },
-      { title: 'Traitements ETL', detail: 'Développement des traitements d’extraction, de transformation et de chargement avec IBM DataStage.' },
-      { title: 'Qualité des données', detail: 'Validation et contrôle de la qualité des données avec SQL et IBM DB2.' },
-      { title: 'Modélisation', detail: 'Contribution à la modélisation des couches ODS, Data Warehouse et Data Mart.' },
-      { title: 'Reporting et pilotage', detail: 'Création de rapports, de tableaux de bord et de KPI avec SAP BusinessObjects WebI et UDT.' }
-    ],
-    tags: ['IBM DataStage', 'SQL', 'IBM DB2', 'SAP BusinessObjects']
-  },
   conges: {
     title: 'Gestion des congés',
     organization: 'Agence Urbaine de Casablanca',

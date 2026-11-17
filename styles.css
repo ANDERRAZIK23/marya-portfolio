@@ -1085,3 +1085,167 @@ h2, .section-heading h2, .education h2, .contact h2 {
   .dialog-close { top: 10px; right: 10px; }
   .dialog-features { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Attijariwafa Bank case study. */
+.project-featured { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.project-featured .featured-content { align-items: flex-start; }
+.project-featured h3 { max-width: 18ch; }
+.case-button {
+  margin-top: 24px;
+  background: var(--rose-deep);
+  color: #fff8fa;
+}
+.case-button:hover { background: #7f375c; }
+
+.risk-cover {
+  display: grid;
+  align-content: center;
+  gap: clamp(16px, 2.5vw, 28px);
+  padding: clamp(22px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 85% 0%, #724663, transparent 60%),
+    #341f31;
+  color: #fff5f9;
+}
+.risk-cover > p { font-size: .875rem; font-weight: 600; }
+.risk-flow {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.risk-flow li {
+  display: grid;
+  position: relative;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  padding: 14px 16px 14px 30px;
+  border: 1px solid #f1c7d849;
+  border-radius: 10px;
+  background: #fff8fc0d;
+}
+.risk-flow li::before {
+  content: '';
+  position: absolute;
+  top: 21px;
+  left: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #efbad5;
+}
+.risk-flow strong { font-size: .9375rem; line-height: 1.35; }
+.risk-flow span { color: #f2dce8; font-size: .8125rem; line-height: 1.5; overflow-wrap: anywhere; }
+.project-featured .risk-flow { gap: 9px; }
+
+.case-page { background: var(--paper); }
+.case-page .case-nav, .case-footer { background: var(--cream); }
+.case-nav { border-bottom: 1px solid var(--line); }
+.case-nav .container, .case-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding-block: 12px;
+}
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--rose-deep);
+  font-size: .875rem;
+  font-weight: 650;
+}
+.case-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.case-hero {
+  padding-block: clamp(3rem, 8vw, 7.25rem) clamp(2.25rem, 5vw, 4.75rem);
+  background: radial-gradient(ellipse at 85% 12%, #efdae7, transparent 65%), var(--paper);
+}
+.case-intro, .case-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .4fr);
+  align-items: end;
+  gap: clamp(26px, 6vw, 80px);
+}
+.case-intro-copy .eyebrow { color: var(--rose-deep); }
+.case-intro h1 {
+  max-width: 13ch;
+  font: 600 clamp(3rem, 7.5vw, 7rem)/.88 var(--serif);
+  letter-spacing: -.05em;
+  text-wrap: pretty;
+}
+.case-page em { font-weight: inherit; }
+.case-intro em { color: var(--rose-deep); }
+.case-lead {
+  max-width: 52ch;
+  margin-top: 24px;
+  color: #654f5c;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+}
+.case-meta, .case-details { margin: 0; }
+.case-meta > div {
+  padding: 10px 0;
+  border-top: 1px solid #d8bac9;
+}
+.case-meta dt {
+  color: #654f5c;
+  font-size: .8125rem;
+}
+.case-meta dd { margin: 0; font-weight: 650; }
+.case-workflow .risk-cover { border-radius: 22px; }
+.case-workflow h2 em { color: #f3c9de; }
+.case-workflow .risk-flow {
+  --flow-gap: clamp(12px, 2.5vw, 28px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--flow-gap);
+}
+.case-workflow .risk-flow li + li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: var(--flow-gap);
+  border-top: 1px solid #f1c7d875;
+}
+.case-contributions { padding-block: clamp(2.75rem, 7vw, 6rem); }
+.case-content {
+  grid-template-columns: minmax(0, .65fr) minmax(0, 1fr);
+  align-items: start;
+}
+.case-tools { margin-top: 24px; }
+.case-tools h3 { margin-bottom: 9px; font-size: .9375rem; }
+.case-details > div {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.case-details > div:last-child { border-bottom: 1px solid var(--line); }
+.case-details dt {
+  margin-bottom: 4px;
+  font-weight: 650;
+  color: var(--rose-deep);
+}
+.case-details dd { margin: 0; color: #654f5c; }
+.case-footer { border-top: 1px solid var(--line); }
+
+@media (max-width: 740px) {
+  .project-featured, .case-intro, .case-content { grid-template-columns: minmax(0, 1fr); }
+  .case-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(128px, 100%), 1fr));
+    gap: 8px 16px;
+  }
+  .case-workflow .risk-flow { grid-template-columns: minmax(0, 1fr); }
+  .case-workflow .risk-flow li + li::after {
+    top: auto;
+    right: auto;
+    bottom: 100%;
+    left: 17px;
+    width: 0;
+    height: var(--flow-gap);
+    border-top: 0;
+    border-left: 1px solid #f1c7d875;
+  }
+}
