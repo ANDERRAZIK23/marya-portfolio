@@ -226,6 +226,23 @@
     </main>
     <footer class="site-footer"><div class="container"><a class="brand" href="#accueil"><span class="brand-mark">m<span>.</span></span><span>marya esseqally</span></a><p>© <span id="year">2026</span> Marya Esseqally</p><a href="#accueil">Retour en haut ↑</a></div></footer>
 
-    <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button type="button" class="dialog-close" aria-label="Fermer les détails du projet"><svg class="icon"><use href="#close"/></svg></button><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description" class="dialog-description"></p><h3>Au cœur du projet</h3><ul id="dialog-features"></ul><div class="tags" id="dialog-tags"></div></div></dialog>
+    <dialog id="project-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <button type="button" class="dialog-close" aria-label="Fermer les détails du projet" autofocus>
+        <svg class="icon" aria-hidden="true"><use href="#close"/></svg>
+      </button>
+      <div class="dialog-inner" tabindex="0" role="region" aria-labelledby="dialog-title">
+        <header class="dialog-header">
+          <p class="dialog-meta"><span id="dialog-organization"></span><span id="dialog-period"></span></p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-description" class="dialog-description"></p>
+        </header>
+        <div class="dialog-body">
+          <h3>Au cœur du projet</h3>
+          <ul class="dialog-features" id="dialog-features" role="list"></ul>
+          <h3>Outils utilisés</h3>
+          <ul class="dialog-tags" id="dialog-tags" role="list"></ul>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>

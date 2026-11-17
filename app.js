@@ -3,34 +3,37 @@
 const projects = {
   risque: {
     title: 'Suivi de l’appétence au risque',
-    category: 'ATTIJARIWAFA BANK · PFE · FÉVR. — JUIL. 2026',
+    organization: 'Attijariwafa Bank',
+    period: 'PFE · Févr. – juil. 2026',
     description: 'Conception d’un tableau de bord décisionnel de suivi de l’appétence au risque au sein du département Data SIG.',
     features: [
-      'Analyse et préparation des données issues de différentes sources.',
-      'Développement de traitements d’extraction, de transformation et de chargement avec IBM DataStage.',
-      'Validation et contrôle de la qualité des données avec SQL et IBM DB2.',
-      'Contribution à la modélisation des couches ODS, Data Warehouse et Data Mart.',
-      'Création de rapports, de tableaux de bord et de KPI avec SAP BusinessObjects WebI et UDT.'
+      { title: 'Préparation des données', detail: 'Analyse et préparation des données issues de différentes sources.' },
+      { title: 'Traitements ETL', detail: 'Développement des traitements d’extraction, de transformation et de chargement avec IBM DataStage.' },
+      { title: 'Qualité des données', detail: 'Validation et contrôle de la qualité des données avec SQL et IBM DB2.' },
+      { title: 'Modélisation', detail: 'Contribution à la modélisation des couches ODS, Data Warehouse et Data Mart.' },
+      { title: 'Reporting et pilotage', detail: 'Création de rapports, de tableaux de bord et de KPI avec SAP BusinessObjects WebI et UDT.' }
     ],
     tags: ['IBM DataStage', 'SQL', 'IBM DB2', 'SAP BusinessObjects']
   },
   conges: {
     title: 'Gestion des congés',
-    category: 'AGENCE URBAINE DE CASABLANCA · JUIL. — AOÛT 2025',
+    organization: 'Agence Urbaine de Casablanca',
+    period: 'Juil. – août 2025',
     description: 'Développement d’une application web de gestion des congés pendant un stage à l’Agence Urbaine de Casablanca.',
     features: [
-      'Développement de l’interface avec Vue.js et du serveur avec Express.js.',
-      'Gestion d’une base de données MongoDB et réalisation des opérations CRUD.'
+      { title: 'Application web', detail: 'Développement de l’interface avec Vue.js et du serveur avec Express.js.' },
+      { title: 'Base de données', detail: 'Gestion d’une base de données MongoDB et réalisation des opérations CRUD.' }
     ],
     tags: ['Vue.js', 'Express.js', 'MongoDB']
   },
   commerce: {
     title: 'Application e-commerce',
-    category: 'CBI · JUIL. 2024',
+    organization: 'CBI',
+    period: 'Juil. 2024',
     description: 'Développement d’une application e-commerce pendant un stage chez CBI.',
     features: [
-      'Développement de l’application avec Django.',
-      'Réalisation de l’interface en HTML, CSS et JavaScript avec Bootstrap.'
+      { title: 'Application web', detail: 'Développement de l’application avec Django.' },
+      { title: 'Interface', detail: 'Réalisation de l’interface en HTML, CSS et JavaScript avec Bootstrap.' }
     ],
     tags: ['Django', 'HTML / CSS', 'JavaScript', 'Bootstrap']
   }
@@ -93,8 +96,10 @@ filters.forEach(button => {
 });
 
 const dialog = document.querySelector('#project-dialog');
+const dialogContent = dialog.querySelector('.dialog-inner');
 const dialogTitle = document.querySelector('#dialog-title');
-const dialogCategory = document.querySelector('#dialog-category');
+const dialogOrganization = document.querySelector('#dialog-organization');
+const dialogPeriod = document.querySelector('#dialog-period');
 const dialogDescription = document.querySelector('#dialog-description');
 const dialogFeatures = document.querySelector('#dialog-features');
 const dialogTags = document.querySelector('#dialog-tags');
@@ -105,20 +110,25 @@ document.querySelectorAll('[data-project]').forEach(button => {
     const project = projects[button.dataset.project];
     dialogTrigger = button;
     dialogTitle.textContent = project.title;
-    dialogCategory.textContent = project.category;
+    dialogOrganization.textContent = project.organization;
+    dialogPeriod.textContent = project.period;
     dialogDescription.textContent = project.description;
-    dialogFeatures.replaceChildren(...project.features.map(feature => {
+    dialogFeatures.replaceChildren(...project.features.map(({title, detail}) => {
       const item = document.createElement('li');
-      item.textContent = feature;
+      const heading = document.createElement('h4');
+      const description = document.createElement('p');
+      heading.textContent = title;
+      description.textContent = detail;
+      item.append(heading, description);
       return item;
     }));
     dialogTags.replaceChildren(...project.tags.map(tag => {
-      const item = document.createElement('span');
+      const item = document.createElement('li');
       item.textContent = tag;
       return item;
     }));
     dialog.showModal();
-    dialog.scrollTop = 0;
+    dialogContent.scrollTop = 0;
     document.body.classList.add('dialog-open');
   });
 });
